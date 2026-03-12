@@ -1,0 +1,182 @@
+================================================================================
+                    SAO E-RECORD FILING SYSTEM
+                    VERSION 2.0 UPDATES
+================================================================================
+
+MAJOR UPDATES:
+================================================================================
+
+1. FIREBASE AUTHENTICATION INTEGRATION
+   - Firebase Auth for user login/registration
+   - Firebase Admin SDK for backend token verification
+   - MongoDB for storing all school data
+   - Hybrid authentication system
+
+2. ENHANCED VIOLATION CATEGORIES
+   - 9 specific violation types with descriptions
+   - Academic Dishonesty
+   - Behavioral Misconduct
+   - Physical Violence & Aggression
+   - Bullying & Harassment
+   - Substance Use & Possession
+   - Vandalism & Theft
+   - Weapons Violation
+   - Attendance Issues
+   - Policy Violations
+
+3. ATTENDANCE MATTER CATEGORIES
+   - 3x Late
+   - 5x Late
+   - 3x Absent
+   - 5x Absent
+
+4. ENHANCED STUDENT PROFILES
+   - Profile picture (Google-changeable)
+   - Status (Active/Inactive)
+   - Detailed personal information
+   - Semester-based attendance (1st Sem, 2nd Sem, Whole Year)
+   - Lates, Absences, Excused Days, Cutting Classes (_/180 days)
+   - Attendance graphs
+   - Calendar for appointments
+   - Documents section
+   - Subjects summary with teachers
+   - Parent/Guardian detailed info
+   - Recent appointments
+
+5. ENHANCED TEACHER PROFILES
+   - Profile picture (Google-changeable)
+   - Status (Active/Inactive)
+   - Detailed personal information
+   - Class attendance overview (1st Sem, 2nd Sem)
+   - Calendar
+   - Class documents (excuse slips)
+   - Subjects handled with sections
+   - Student appointments from section
+
+6. ENHANCED SAO COORDINATOR PROFILES
+   - Profile picture (Google-changeable)
+   - Status (Active/Inactive)
+   - All sections attendance overview (cards)
+   - Calendar
+   - All section documents
+   - Subjects handled
+   - All student appointments
+   - School-wide statistics
+
+7. GRADE 12 ST. MARGARET DATA
+   - 51 students pre-configured
+   - 33 Male, 18 Female
+   - LRN: 2026120001-2026120051
+   - Default password: MARG1203
+   - Class officers assigned
+   - 9 subjects (1st Sem), 8 subjects (2nd Sem)
+   - Adviser: Mrs. Ruby Z. Nuñez
+
+8. FILE UPLOAD SUPPORT
+   - Multer integration for file uploads
+   - Support for excuse slips
+   - Documentation storage
+   - Profile pictures
+
+================================================================================
+NEW FILES CREATED:
+================================================================================
+
+1. config/firebase.js - Firebase Admin SDK configuration
+2. middleware/firebaseAuth.js - Firebase authentication middleware
+3. utils/constants.js - Violation and attendance categories
+4. utils/seedStudents.js - Grade 12 St. Margaret data seeding
+5. FIREBASE_SETUP.md - Complete Firebase setup guide
+6. UPDATES_V2.txt - This file
+
+================================================================================
+UPDATED FILES:
+================================================================================
+
+1. package.json - Added firebase-admin and multer
+2. models/Student.js - Enhanced with detailed fields
+3. models/Teacher.js - Enhanced with detailed fields
+4. models/Appointment.js - Added category and description
+5. routes/sao.js - Added category endpoints
+6. public/js/sao-dashboard.js - Enhanced notification form
+7. README.md - Added Firebase and new features documentation
+
+================================================================================
+DATABASE SCHEMA UPDATES:
+================================================================================
+
+Student Model:
+- Added: lastName, firstName, middleName
+- Added: status (Active/Inactive)
+- Added: subjects array with teacher info
+- Enhanced: parentGuardian with detailed fields
+
+Teacher Model:
+- Added: lastName, firstName, middleName
+- Added: status (Active/Inactive)
+- Enhanced: subjectsHandled with gradeLevel and semester
+
+Appointment Model:
+- Added: category field
+- Added: description field
+
+================================================================================
+NEW API ENDPOINTS:
+================================================================================
+
+GET  /api/sao/violation-categories - Get all violation categories
+GET  /api/sao/attendance-categories - Get all attendance matter categories
+
+================================================================================
+COMMANDS TO RUN:
+================================================================================
+
+1. Install new dependencies:
+   npm install
+
+2. Seed Grade 12 St. Margaret students:
+   npm run seed
+
+3. Start server:
+   npm run dev
+
+================================================================================
+FIREBASE SETUP REQUIRED:
+================================================================================
+
+1. Create Firebase project
+2. Enable Email/Password authentication
+3. Download service account key
+4. Place in: config/serviceAccountKey.json
+5. Add Firebase config to frontend
+6. See FIREBASE_SETUP.md for details
+
+================================================================================
+TESTING:
+================================================================================
+
+Test with Grade 12 St. Margaret students:
+- Email: Any from the list (e.g., doouuiiee@gmail.com)
+- Password: MARG1203
+- LRN: 2026120001-2026120051
+
+================================================================================
+NEXT STEPS:
+================================================================================
+
+1. Set up Firebase project
+2. Run npm install
+3. Run npm run seed
+4. Configure Firebase in frontend
+5. Test login with seeded students
+6. Test violation categories
+7. Test attendance matter categories
+8. Test file uploads
+
+================================================================================
+
+VERSION: 2.0
+DATE: March 12, 2026
+STATUS: Ready for Firebase Integration
+
+================================================================================

@@ -1,0 +1,163 @@
+================================================================================
+                    SAO E-RECORD FILING SYSTEM
+                    QUICK START GUIDE
+================================================================================
+
+WHAT YOU NEED TO DO:
+================================================================================
+
+1. INSTALL MONGODB
+   - Go to: https://www.mongodb.com/try/download/community
+   - Download and install MongoDB Community Server
+   - Choose "Complete" installation
+
+2. INSTALL PROJECT DEPENDENCIES
+   - Open terminal in VS Code (Ctrl + `)
+   - Run: npm install
+   - Wait for completion
+
+3. CONFIGURE EMAIL
+   - Open .env file
+   - Get Gmail App Password from: https://myaccount.google.com/apppasswords
+   - Paste it in EMAIL_PASS field
+   - Change JWT_SECRET to any random string
+
+4. START MONGODB
+   - Open new terminal
+   - Run: mongod
+   - Keep this terminal open
+
+5. START SERVER
+   - Open another terminal
+   - Run: npm run dev
+   - Server starts on http://localhost:5000
+
+6. OPEN IN BROWSER
+   - Go to: http://localhost:5000
+   - You should see the landing page!
+
+================================================================================
+TERMINAL COMMANDS YOU'LL USE:
+================================================================================
+
+npm install          - Install dependencies (first time only)
+mongod              - Start MongoDB (keep running)
+npm run dev         - Start server with auto-restart
+npm start           - Start server (production mode)
+Ctrl + C            - Stop server
+
+================================================================================
+TESTING THE SYSTEM:
+================================================================================
+
+1. REGISTER A STUDENT:
+   - Click "Login" → "Register"
+   - Choose "Regular Student"
+   - Fill all 4 steps
+   - Use LRN: 2024120001
+   - Choose Grade 12, St. Margaret
+
+2. REGISTER A TEACHER:
+   - Click "Register"
+   - Choose "Staff: Teacher"
+   - Fill the form
+   - Choose any office
+
+3. REGISTER SAO COORDINATOR:
+   - Same as teacher
+   - But choose "Students Affairs Office (SAO)" as office
+
+4. LOGIN:
+   - Use the email and password you registered
+   - You'll be redirected to your dashboard
+
+================================================================================
+FILE STRUCTURE:
+================================================================================
+
+server.js           - Main server file
+models/             - Database schemas
+routes/             - API endpoints
+public/             - Frontend files
+  ├── index.html    - Landing page
+  ├── student-dashboard.html
+  ├── teacher-dashboard.html
+  ├── sao-dashboard.html
+  └── js/           - JavaScript files
+
+================================================================================
+IMPORTANT FILES TO READ:
+================================================================================
+
+README.md                    - Main documentation
+SETUP_GUIDE.md              - Detailed setup instructions
+COMPLETE_DOCUMENTATION.md   - Full system documentation
+TERMINAL_COMMANDS.md        - Command reference
+PROJECT_SUMMARY.md          - What was created
+
+================================================================================
+TROUBLESHOOTING:
+================================================================================
+
+Problem: "Cannot find module"
+Solution: Run: npm install
+
+Problem: "Port 5000 already in use"
+Solution: Change PORT in .env to 5001
+
+Problem: "MongoDB connection failed"
+Solution: Make sure mongod is running
+
+Problem: "Emails not sending"
+Solution: Check EMAIL_PASS in .env file
+
+================================================================================
+DEPLOYMENT OPTIONS:
+================================================================================
+
+1. VERCEL (Recommended):
+   - npm install -g vercel
+   - vercel login
+   - vercel --prod
+
+2. RAILWAY:
+   - Go to railway.app
+   - Connect GitHub repo
+   - Add MongoDB service
+   - Deploy
+
+3. NETLIFY (Frontend only):
+   - Drag public folder to netlify.com
+   - Deploy backend separately
+
+================================================================================
+NEED HELP?
+================================================================================
+
+Email: sao.digital.records@gmail.com
+Phone: 09*********
+
+Check the documentation files for detailed information!
+
+================================================================================
+QUICK CHECKLIST:
+================================================================================
+
+[ ] MongoDB installed
+[ ] npm install completed
+[ ] .env file configured
+[ ] Gmail app password set
+[ ] mongod running
+[ ] npm run dev running
+[ ] Browser opened to localhost:5000
+[ ] Can see landing page
+[ ] Can register student
+[ ] Can register teacher
+[ ] Can login
+[ ] Dashboard loads correctly
+
+================================================================================
+
+YOU'RE ALL SET! Happy coding! 🎉
+
+================================================================================

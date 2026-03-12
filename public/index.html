@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAO E-Record Filing System - Cordova Catholic School</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        :root {
+            --primary: #374426;
+            --secondary: #47622a;
+            --accent: #799851;
+            --light: #9fb878;
+            --cream: #dfddd1;
+            --sage: #90997f;
+            --olive: #afb59d;
+            --pale: #d4d0b9;
+            --muted: #9ea99c;
+            --forest: #102f15;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(rgba(55, 68, 38, 0.88), rgba(16, 47, 21, 0.92)), url('https://random-gray-6ix7wliexl.edgeone.app/IMG_9225.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .logo-section img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .btn-nav {
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-login {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-login:hover {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .btn-register {
+            background: var(--light);
+            border: 2px solid var(--light);
+            color: var(--forest);
+        }
+        
+        .btn-register:hover {
+            background: white;
+            border-color: white;
+            color: var(--primary);
+        }
+        
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+        
+        .school-logo-large {
+            width: 180px;
+            height: 180px;
+            margin-bottom: 40px;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+        
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+        
+        .hero-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--light);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .hero-description {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 48px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn-cta {
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            border: none;
+        }
+        
+        .btn-primary-cta {
+            background: var(--light);
+            color: var(--forest);
+            box-shadow: 0 8px 24px rgba(159, 184, 120, 0.4);
+        }
+        
+        .btn-primary-cta:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary-cta {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary-cta:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 80px 20px;
+            background: var(--cream);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--secondary);
+            margin-bottom: 16px;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(55, 68, 38, 0.2);
+        }
+        
+        /* PVMGOV Section */
+        .pvmgov-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+        }
+        
+        .pvmgov-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .pvmgov-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+        
+        .pvmgov-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .pvmgov-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--light);
+        }
+        
+        .pvmgov-card p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+        
+        .core-values {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .core-values h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: var(--light);
+        }
+        
+        .core-values-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 2;
+            letter-spacing: 2px;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            background: var(--pale);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(55, 68, 38, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(55, 68, 38, 0.15);
+        }
+        
+        .contact-icon {
+            font-size: 48px;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+        
+        .contact-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        
+        .contact-card p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+        
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-card a:hover {
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 16px 24px;
+            }
+            
+            .logo-section h1 {
+                font-size: 14px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content h2 {
+                font-size: 28px;
+            }
+            
+            .hero-description {
+                font-size: 16px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .btn-cta {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .pvmgov-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo-section">
+                <img src="https://strategic-azure-2e1tmo9cyy.edgeone.app/IMG_3170.png" alt="School Logo">
+                <h1>Cordova Catholic School<br>Multipurpose Cooperative</h1>
+            </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="btn-nav btn-login">
+                    <ion-icon name="log-in-outline"></ion-icon>
+                    Login
+                </a>
+                <a href="register-select.html" class="btn-nav btn-register">
+                    <ion-icon name="person-add-outline"></ion-icon>
+                    Register
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <img src="https://strategic-azure-2e1tmo9cyy.edgeone.app/IMG_3170.png" alt="School Logo" class="school-logo-large">
+            
+            <h1>Cordova Catholic School</h1>
+            <h2>Multipurpose Cooperative</h2>
+            
+            <p class="hero-subtitle">SAO E-Record Filing System</p>
+            
+            <p class="hero-description">
+                A comprehensive digital platform designed to manage student records, track attendance, 
+                and handle disciplinary actions efficiently and securely.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="login.html" class="btn-cta btn-primary-cta">
+                    <ion-icon name="enter-outline"></ion-icon>
+                    Access Portal
+                </a>
+                <a href="register-select.html" class="btn-cta btn-secondary-cta">
+                    <ion-icon name="person-add-outline"></ion-icon>
+                    Create Account
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p class="section-subtitle">Empowering education through innovative digital solutions</p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>SAO E-Record Filing System</h3>
+                    <p>
+                        The Student Affairs Office (SAO) E-Record Filing System is a comprehensive digital platform 
+                        designed specifically for Cordova Catholic School Multipurpose Cooperative to streamline 
+                        student record management, attendance tracking, and disciplinary action handling.
+                    </p>
+                    <p>
+                        Our system provides a secure, efficient, and user-friendly interface for students, teachers, 
+                        and SAO coordinators to manage academic records, monitor attendance patterns, schedule 
+                        appointments, and maintain comprehensive documentation.
+                    </p>
+                    <p>
+                        With automated email notifications, real-time updates, and detailed reporting capabilities, 
+                        we ensure that all stakeholders stay informed and connected throughout the academic journey.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <img src="https://strategic-azure-2e1tmo9cyy.edgeone.app/IMG_3170.png" alt="School Logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PVMGOV Section -->
+    <section class="pvmgov-section" id="pvmgov">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Our PVMGOV</h2>
+            <p class="section-subtitle" style="color: var(--light); opacity: 0.95;">
+                The foundation of our educational excellence
+            </p>
+            
+            <div class="pvmgov-grid">
+                <div class="pvmgov-card">
+                    <h3>Philosophy</h3>
+                    <p>
+                        Propels human transformation and catalyzes full potential in a christ-centered environment.
+                    </p>
+                </div>
+                
+                <div class="pvmgov-card">
+                    <h3>Vision</h3>
+                    <p>
+                        A strong christ-centered, cooperative school of empowered members.
+                    </p>
+                </div>
+                
+                <div class="pvmgov-card">
+                    <h3>Mission</h3>
+                    <p>
+                        Commits to uplift the socioeconomic wellbeing of the members and the community by providing 
+                        quality educational, financial, and other services.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="pvmgov-grid" style="margin-top: 30px;">
+                <div class="pvmgov-card">
+                    <h3>Goals & Objectives</h3>
+                    <p>• Heighten the students' communicative and critical thinking skills</p>
+                    <p>• Instill the Value of thrift and saving to develop a community of savers</p>
+                    <p>• Provide a balance among curricular, co-curricular, and extra curricular activities</p>
+                    <p>• Develop Adaptability and Interpersonal skills through cooperative work and play</p>
+                    <p>• Produce self-disciplined, independent, cooperative and Christ-Centered individuals</p>
+                    <p>• Apply Effective and Wise use of Information, Technology, and Literacy Tools</p>
+                    <p>• Guide students to a wise choice of vocation</p>
+                    <p>• Embrace diversity and value integrity of the individuals</p>
+                </div>
+            </div>
+            
+            <div class="core-values">
+                <h3>Core Values</h3>
+                <div class="core-values-text">
+                    M - Motivated to<br>
+                    S - Serve and Uphold<br>
+                    C - Cooperative Ideals
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Get in touch with us for any inquiries or support</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <ion-icon name="mail-outline"></ion-icon>
+                    </div>
+                    <h3>Email</h3>
+                    <p>
+                        <a href="mailto:sao.digital.records@gmail.com">sao.digital.records@gmail.com</a>
+                    </p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <ion-icon name="call-outline"></ion-icon>
+                    </div>
+                    <h3>Phone</h3>
+                    <p>09*********</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <ion-icon name="location-outline"></ion-icon>
+                    </div>
+                    <h3>Location</h3>
+                    <p>
+                        Cordova Catholic School<br>
+                        Multipurpose Cooperative<br>
+                        Cordova, Cebu
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Cordova Catholic School Multipurpose Cooperative. All rights reserved.</p>
+            <p style="margin-top: 10px;">SAO E-Record Filing System</p>
+        </div>
+    </footer>
+</body>
+</html>

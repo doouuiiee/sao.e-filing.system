@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - SAO E-Record System</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: var(--bg-light);
+        }
+
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-gray);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            transition: color 0.2s;
+        }
+
+        .back-button:hover {
+            color: var(--primary-dark);
+        }
+
+        .auth-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .page-title h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .page-title p {
+            font-size: 16px;
+            color: var(--text-gray);
+        }
+
+        .role-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 48px;
+        }
+
+        .role-card {
+            background: white;
+            padding: 48px 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(55, 68, 38, 0.1);
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+
+        .role-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(55, 68, 38, 0.15);
+            border-color: var(--primary-green);
+        }
+
+        .role-icon {
+            width: 120px;
+            height: 120px;
+            background: var(--bg-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            transition: all 0.3s;
+        }
+
+        .role-card:hover .role-icon {
+            background: var(--secondary-green);
+        }
+
+        .role-icon ion-icon {
+            font-size: 60px;
+            color: var(--primary-dark);
+        }
+
+        .role-card h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .role-card p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .btn-role {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary-dark);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-role:hover {
+            background: var(--primary-darker);
+            transform: translateY(-2px);
+        }
+
+        .login-link {
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .login-link a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .login-link a:hover {
+            color: var(--primary-darker);
+        }
+
+        @media (max-width: 768px) {
+            .role-cards {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .page-title h1 {
+                font-size: 32px;
+            }
+
+            .role-card {
+                padding: 32px 24px;
+            }
+
+            .role-icon {
+                width: 100px;
+                height: 100px;
+            }
+
+            .role-icon ion-icon {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <a href="index.html" class="back-button">
+            <ion-icon name="arrow-back-outline" style="font-size: 20px;"></ion-icon>
+            Back to Home
+        </a>
+
+        <div class="auth-content">
+            <div class="page-title">
+                <h1>Create an Account</h1>
+                <p>Select your role to begin the registration process</p>
+            </div>
+
+            <div class="role-cards">
+                <!-- Student Registration -->
+                <div class="role-card">
+                    <div class="role-icon">
+                        <ion-icon name="school-outline"></ion-icon>
+                    </div>
+                    <h2>Student Registration</h2>
+                    <p>Register as a student to view your attendance, documentation, and class records.</p>
+                    <a href="register-student.html" class="btn-role">
+                        Register as Student
+                        <ion-icon name="arrow-forward-outline" style="font-size: 20px;"></ion-icon>
+                    </a>
+                </div>
+
+                <!-- Staff/Teacher Registration -->
+                <div class="role-card">
+                    <div class="role-icon">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </div>
+                    <h2>Staff / Teacher Registration</h2>
+                    <p>Register as a teacher or SAO coordinator to manage student records and attendance.</p>
+                    <a href="register-teacher.html" class="btn-role">
+                        Register as Staff
+                        <ion-icon name="arrow-forward-outline" style="font-size: 20px;"></ion-icon>
+                    </a>
+                </div>
+            </div>
+
+            <div class="login-link">
+                Already have an account? <a href="login.html">Log in here</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
